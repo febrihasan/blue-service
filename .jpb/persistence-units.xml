@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PersistenceUnitSettings">
+    <persistence-units>
+      <persistence-unit name="BLU Project">
+        <packages>
+          <package value="org.ait.project.blu" />
+        </packages>
+        <entities>
+          <entity value="org.springframework.data.jpa.domain.AbstractPersistable" />
+        </entities>
+      </persistence-unit>
+    </persistence-units>
+  </component>
+</project>

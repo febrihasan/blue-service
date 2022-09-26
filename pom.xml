@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.3</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>org.ait.project.blu</groupId>
+	<artifactId>blu</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<name>BLU Service</name>
+	<description>BLU Project for Spring Boot</description>
+	<properties>
+		<io.jsonwebtoken.version>0.11.5</io.jsonwebtoken.version>
+		<java.version>11</java.version>
+		<keycloak-adapter.version>19.0.1</keycloak-adapter.version>
+		<lombok.version>1.18.24</lombok.version>
+		<org.keycloak.version>19.0.1</org.keycloak.version>
+		<org.mapstruct.version>1.5.2.Final</org.mapstruct.version>
+		<org.mapstruct-binding.version>0.2.0</org.mapstruct-binding.version>
+		<org.zalando.version>2.14.0</org.zalando.version>
+		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+		<netflix-hystrix.version>2.2.10.RELEASE</netflix-hystrix.version>
+		<spring-cloud.version>2021.0.4</spring-cloud.version>
+		<springdoc-openapi.version>1.6.11</springdoc-openapi.version>
+	</properties>
+	<dependencies>
+		<!-- Spring Framework & Depedencies -->
+
+		<!-- [BEGIN] Spring Actuator -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<!-- [END] Spring Actuator -->
+
+		<!-- [BEGIN] Spring Web -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- [END] Spring Web -->
+
+		<!-- [BEGIN] Spring Data JPA -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<!-- [END] Spring Data JPA -->
+
+		<!-- [BEGIN] Spring Validation -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<!-- [END] Spring Validation -->
+
+		<!-- [BEGIN] Spring Boot Test -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- [END] Spring Boot Test -->
+
+		<!-- [BEGIN] Spring Security -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<!-- [END] Spring Security -->
+
+		<!-- [END] Spring Security Test -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- [END] Spring Security Test -->
+
+		<!-- [BEGIN] Spring Cloud OpenFeign -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+		<!-- [END] Spring Cloud OpenFeign -->
+
+		<!-- [BEGIN] Spring Hystrix -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+			<version>${netflix-hystrix.version}</version>
+		</dependency>
+		<!-- [END] Spring Hystrix -->
+
+		<!-- [BEGIN] Spring Documentation -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>${springdoc-openapi.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-javadoc</artifactId>
+			<version>${springdoc-openapi.version}</version>
+		</dependency>
+		<!-- [END] Spring Documentation -->
+
+		<!-- Spring Framework & Depedencies -->
+
+		<!-- REQUIRED -->
+		<!-- [BEGIN] Flyway Migration -->
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
+		<!-- [END] Flyway Migration -->
+
+		<!-- [BEGIN] PostgreSQL Database -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- [END] PostgreSQL Database -->
+
+		<!-- [BEGIN] Project Lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!-- [END] Project Lombok -->
+
+		<!-- [BEGIN] Mapstruct -->
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>${org.mapstruct.version}</version>
+		</dependency>
+		<!-- [END] Mapstruct -->
+
+		<!-- [BEGIN] Zalando -->
+		<dependency>
+			<groupId>org.zalando</groupId>
+			<artifactId>logbook-spring-boot-starter</artifactId>
+			<version>${org.zalando.version}</version>
+		</dependency>
+		<!-- [END] Zalando -->
+
+		<!-- [BEGIN] Keycloak Adapter -->
+		<dependency>
+			<groupId>org.keycloak</groupId>
+			<artifactId>keycloak-spring-boot-starter</artifactId>
+			<version>${org.keycloak.version}</version>
+		</dependency>
+		<!-- [END] Keycloak Adapter -->
+
+		<!-- [BEGIN] Keycloak Admin Client -->
+		<dependency>
+			<groupId>org.keycloak</groupId>
+			<artifactId>keycloak-admin-client</artifactId>
+			<version>${org.keycloak.version}</version>
+		</dependency>
+		<!-- [END] Keycloak Admin Client -->
+
+		<!-- [BEGIN] JSON Web Token -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>${io.jsonwebtoken.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>${io.jsonwebtoken.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>${io.jsonwebtoken.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- [END] JSON Web Token -->
+
+		<!-- REQUIRED -->
+	</dependencies>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.keycloak.bom</groupId>
+				<artifactId>keycloak-adapter-bom</artifactId>
+				<version>${keycloak-adapter.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct-processor</artifactId>
+							<version>${org.mapstruct.version}</version>
+						</path>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>${lombok.version}</version>
+						</path>
+						<dependency>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok-mapstruct-binding</artifactId>
+							<version>${org.mapstruct-binding.version}</version>
+						</dependency>
+					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

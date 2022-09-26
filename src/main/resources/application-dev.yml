@@ -1,0 +1,29 @@
+# profile dev
+app:
+  feign:
+    config:
+      auth:
+        name: auth-service
+        # keycloak v19.0.2
+        #url: http://localhost:8180
+        # keycloak v10.0.2
+        url: http://localhost:8080/auth
+        path: /realms/blu
+      transaction:
+        name: transaction-service
+        url: https://blu.mocklab.io
+        path: /api/blu
+
+spring:
+  # database connection
+  datasource:
+    url: jdbc:postgresql://localhost:5432/blu
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  # flyway flag for migration
+  flyway:
+    enabled: true

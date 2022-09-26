@@ -1,0 +1,96 @@
+# server
+server:
+  # server port
+  port: 9009
+  # path RESTful
+  servlet:
+    context-path: /api
+
+# spring
+spring:
+  # application name
+  application:
+    name: blu-service
+  # flyway flag for migration
+  flyway:
+    enabled: false
+  # profiles active
+  profiles:
+    active : dev
+
+# logbook format style to write the log file
+logbook:
+  format:
+    style: splunk
+
+# logging
+logging:
+  #location log file
+  file:
+    path: logs
+    name: logs/blu-service.log
+  # level write log file
+  level:
+    #set for openfeign write into log
+    org.ait.project.blu.shared.openfeign: DEBUG
+    #set for logbook write into log
+    org.zalando.logbook: TRACE
+
+# open feign
+feign:
+  #active openfeign fallback set true on circuit breaker and hystrix
+  circuitbreaker:
+    enabled: true
+  # hystrix flag
+  hystrix:
+    enabled: true
+  # client openfeign log set
+  client:
+    config:
+      auth-service:
+        loggerLevel: full
+      transaction-service:
+        loggerLevel: full
+
+#turn off time out hystrix, because for default this config if true set timeout to 15 sec, and openfeign timeout unused
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
+
+
+
+# keycloak v19.0.2
+#keycloak:
+#  auth-server-url: http://localhost:8180
+#  bearer-only: true
+#  credentials:
+#    secret: sh2xqwSiRYsNz3vbqMMulExN3zGccxpX
+#  principal-attribute: preferred_username
+#  realm: blu
+#  resource: blu-keycloak-client
+#  ssl-required: external
+#  use-resource-role-mappings: true
+
+# create user keycloak
+master:
+  keycloak:
+    realm : master
+    username: admin
+    password: admin
+    client-id: admin-cli
+
+
+# keycloak v10.0.2
+keycloak:
+  auth-server-url: http://localhost:8080/auth
+  bearer-only: true
+  credentials:
+    secret: f6224c1a-d6fa-4499-934c-6f143d2f60ad
+  principal-attribute: preferred_username
+  realm: blu
+  resource: blu-keycloak-client
+  ssl-required: external
+  use-resource-role-mappings: true
